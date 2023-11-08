@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Picture Diary with Timestamps and Hand drawing on canvas</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <h1 class="colorful">えにっきちょう</h1>
+        <details class="diary-detail"><summary>今日の日記を書きましょう。</summary>
+            <div class="input-area">
+                <nav>
+                    <input type="color" id="color" value="#cccccc">
+                    <input type="range" id="bold_line" min="1" max="10" value="3">
+                    <button id="clear_btn">Clear</button>
+                </nav>
+                <canvas id="drawarea" width="555" height="555" style="border:1px solid #ccc;"></canvas>
+                <input id="title" type="text" placeholder="タイトルを入力" required>
+                <textarea id="text" placeholder="本文を入力" required></textarea>
+            </div>
+            <div class="button-area">
+                <button id="save">今日の日記を保存する</button>
+                <button id="clear">過去の日記を全て削除する</button>
+            </div>
+        </details>
+    </main>
+
+    <ul id="list"></ul>
+
+    <footer>
+        fumi's picture diary
+    </footer>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
+
+
+<!-- TODO 本のページをめくるCSS https://little-strange.hatenablog.com/entry/2021/08/30/235839 -->
+<!-- 今日の日記はやはり下に入れるかも -->
