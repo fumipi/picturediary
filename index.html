@@ -6,14 +6,15 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <main>
         <h1 class="colorful">えにっきちょう</h1>
-        <details class="diary-detail"><summary>今日の日記を書きましょう。</summary>
+        <details class="diary-detail">
+            <summary>今日の日記を書きましょう。</summary>
             <div class="input-area">
                 <nav>
                     <input type="color" id="color" value="#cccccc">
@@ -31,7 +32,25 @@
         </details>
     </main>
 
-    <ul id="list"></ul>
+    <!-- <ul id="list"></ul> -->
+
+    <div class="cssbk">
+        <label>
+            <input type="checkbox" />
+            <span style="z-index: 99;">表紙</span>
+            <span class="dummy">中の文章</span>
+        </label>
+        <label>
+            <input type="checkbox" />
+            <span style="z-index: 98;">中の文章</span>
+            <span class="dummy">中の文章</span>
+        </label>
+        <label>
+            <input type="checkbox" />
+            <span style="z-index: 1;">中の文章</span>
+            <span class="dummy">裏表紙</span>
+        </label>
+    </div>
 
     <footer>
         fumi's picture diary

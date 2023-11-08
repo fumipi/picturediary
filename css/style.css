@@ -8,13 +8,33 @@ h1 {
     border-bottom: 1px solid #ccc;
 }
 
-.colorful span:nth-child(1) { color: #E91E63; }
-.colorful span:nth-child(2) { color: #303F9F; }
-.colorful span:nth-child(3) { color: #4CAF50; }
-.colorful span:nth-child(4) { color: #FF5722; }
-.colorful span:nth-child(5) { color: #FFA000; }
-.colorful span:nth-child(6) { color: #009688; }
-.colorful span:nth-child(7) { color: #03A9F4; }
+.colorful span:nth-child(1) {
+    color: #E91E63;
+}
+
+.colorful span:nth-child(2) {
+    color: #303F9F;
+}
+
+.colorful span:nth-child(3) {
+    color: #4CAF50;
+}
+
+.colorful span:nth-child(4) {
+    color: #FF5722;
+}
+
+.colorful span:nth-child(5) {
+    color: #FFA000;
+}
+
+.colorful span:nth-child(6) {
+    color: #009688;
+}
+
+.colorful span:nth-child(7) {
+    color: #03A9F4;
+}
 
 .diary-detail {
     text-align: center;
@@ -36,38 +56,45 @@ h1 {
 
 nav {
     display: flex;
-    justify-content: center; 
-    gap: 10px; 
+    justify-content: center;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
 .input-area {
     width: 90%;
-    max-width: 600px; /* Set a max-width for larger screens */
-    margin: 0 auto 30px; /* Auto margins for horizontal centering */
+    max-width: 600px;
+    /* Set a max-width for larger screens */
+    margin: 0 auto 30px;
+    /* Auto margins for horizontal centering */
     padding: 20px 20px 0 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    box-sizing: border-box; /* Include padding and border in the element's width */
+    box-sizing: border-box;
+    /* Include padding and border in the element's width */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center children horizontally */
+    align-items: center;
+    /* Center children horizontally */
 }
 
 input[type="color"],
 input[type="range"] {
-    max-width: 200px; /* Limit the width of these inputs */
+    max-width: 200px;
+    /* Limit the width of these inputs */
 }
 
 #drawarea {
     border: 1px solid #ccc;
-    display: block; /* Remove if you set display to block in HTML */
-    margin-bottom: 20px; 
+    display: block;
+    /* Remove if you set display to block in HTML */
+    margin-bottom: 20px;
 }
 
 input[type="text"],
 textarea {
-    width: calc(100% - 20px); /* Adjust width taking padding into account */
+    width: calc(100% - 20px);
+    /* Adjust width taking padding into account */
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
@@ -80,7 +107,7 @@ textarea {
 }
 
 .button-area {
-    max-width: 600px; 
+    max-width: 600px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -109,9 +136,11 @@ footer {
     font-size: 20px;
 }
 
+/* 単にリストで表示 */
+
 #list {
     width: 90%;
-    max-width: 600px; 
+    max-width: 600px;
     margin: 50px auto;
 }
 
@@ -124,4 +153,53 @@ footer {
 
 #list li p {
     margin: 10px 0;
+}
+
+/* 本のように表示するやつ */
+
+.cssbk {
+    position: relative;
+    transform: translate(35%);
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 72%;
+}
+
+.cssbk input {
+    display: none;
+}
+
+.cssbk input~span {
+    transition: 1.5s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: #fffff8;
+    border: 1px solid black;
+}
+
+.cssbk input+span {
+    left: 50%;
+    transform-origin: left;
+    transform: perspective(1500px) rotateY(0deg);
+}
+
+.cssbk input+span+span {
+    right: 50%;
+    transform-origin: right;
+    transform: perspective(1500px) rotateY(180deg);
+}
+
+.cssbk input:checked+span {
+    transform: perspective(1500px) rotateY(-180deg);
+}
+
+.cssbk input:checked+span+span {
+    transform: perspective(1500px) rotateY(0deg);
 }
