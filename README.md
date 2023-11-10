@@ -2,11 +2,11 @@
 
 ## DEMO
 
-  - デプロイしている場合はURLを記入（任意）
+  - https://fumipi.github.io/picturediary/
 
 ## 紹介と使い方
 
-  - G's academyの宿題、localStorageを使った絵日記アプリです。
+  - G's academyの宿題、localStorageを使ったアプリで提出したものです。
   - 絵日記を書くと、どんどん冊子のページが増え、過去の絵日記を見直せます
 
 ## 工夫した点
