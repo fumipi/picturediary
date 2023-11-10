@@ -136,7 +136,7 @@ footer {
     font-size: 20px;
 }
 
-/* 単にリストで表示 */
+/* //単にリストで表示
 
 #list {
     width: 90%;
@@ -153,7 +153,7 @@ footer {
 
 #list li p {
     margin: 10px 0;
-}
+} */
 
 /* 本のように表示するやつ */
 
@@ -170,6 +170,10 @@ footer {
 
 .cssbk input {
     display: none;
+}
+
+#front-cover {
+    background:url(assets/picturebookcover.webp) no-repeat center center / cover;
 }
 
 .cssbk input~span {
