@@ -79,19 +79,41 @@ document.querySelector("#save").addEventListener("click", saveMemo);
 
 document.querySelector("#clear").addEventListener("click", () => {
     localStorage.clear();
-    document.querySelector("#list").innerHTML = '';
+    document.querySelector("#pages").innerHTML = '';
 });
+
+// function appendMemo({ title, text, timestamp, image }) {
+//     const dateStr = new Date(timestamp).toLocaleString('ja-JP');
+//     const listElement = document.createElement('li');
+//     listElement.innerHTML = `
+//         <p>${dateStr}</p>
+//         <p>${title}</p>
+//         <img src="${image}" alt="${title}">
+//         <p>${text}</p>
+//     `;
+//     document.querySelector("#list").appendChild(listElement);
+// }
 
 function appendMemo({ title, text, timestamp, image }) {
     const dateStr = new Date(timestamp).toLocaleString('ja-JP');
-    const listElement = document.createElement('li');
-    listElement.innerHTML = `
-        <p>${dateStr}</p>
-        <p>${title}</p>
-        <img src="${image}" alt="${title}">
-        <p>${text}</p>
+    const pageElement = document.createElement('label');
+    pageElement.innerHTML = `
+        <input type="checkbox" />
+        <span style="z-index: 95;">
+            <p>${dateStr}</p>
+            <p>${title}</p>
+            <img src="${image}" alt="${title}">
+            <p>${text}</p>
+        </span>
+        <span class="dummy">
+            <p>${dateStr}</p>
+            <p>${title}</p>
+            <img src="${image}" alt="${title}">
+            <p>${text}</p>
+        </span>
     `;
-    document.querySelector("#list").appendChild(listElement);
+    console.log(pageElement);
+    document.querySelector("#pages").appendChild(pageElement);
 }
 
 function loadMemos() {
