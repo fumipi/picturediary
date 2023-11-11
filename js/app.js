@@ -99,13 +99,13 @@ function appendMemo({ title, text, timestamp, image }) {
     const pageElement = document.createElement('label');
     pageElement.innerHTML = `
         <input type="checkbox" />
-        <span class="page-dontents" style="z-index: 95;">
+        <span class="page-contents" style="z-index: 95;">
             <p>${dateStr}</p>
             <p>${title}</p>
             <img src="${image}" alt="${title}">
             <p>${text}</p>
         </span>
-        <span class="page-dontents" class="dummy">
+        <span class="page-contents" class="dummy">
             <p>${dateStr}</p>
             <p>${title}</p>
             <img src="${image}" alt="${title}">
