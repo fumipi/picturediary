@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Zen+Kurenaido&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -32,25 +32,24 @@
         </details>
     </main>
 
-    <ul id="list"></ul>
+    <!-- <ul id="list"></ul> -->
 
     <div class="cssbk">
         <label>
             <input type="checkbox" />
-            <span id = front-cover style="z-index: 99;"><img src="assets/picturebookcover.webp" alt="表紙" id = "bookcover"></span>
-            <!-- <span id = front-cover style="z-index: 99;"><img src="assets/picturebookcover.webp" alt="表紙" id = "bookcover"></span> -->
-            <span class="dummy">中の文章</span>
+            <span id = front-cover style="z-index: 99;"></span>
+            <span class="dummy"></span>
         </label>
         <div id="pages"></div>
         <label>
             <input type="checkbox" />
-            <span style="z-index: 98;">中の文章</span>
-            <span class="dummy">中の文章</span>
+            <span class="page-dontents" style="z-index: 98;">中の文章</span>
+            <span class="page-dontents" class="dummy">中の文章</span>
         </label>
         <label>
             <input type="checkbox" />
-            <span style="z-index: 1;">中の文章</span>
-            <span class="dummy">裏表紙</span>
+            <span class="page-dontents" style="z-index: 1;">まだ最後まで書いていないよ。</span>
+            <span id = front-cover class="dummy"></span>
         </label>
     </div>
 
@@ -65,7 +64,6 @@
 
 
 <!-- 参考：本のページをめくるCSS https://little-strange.hatenablog.com/entry/2021/08/30/235839 -->
-<!-- TODO 表紙のサイズを調整 -->
 <!-- TODO 裏表紙をつける -->
 <!-- TODO １つおきの処理で裏表表示 -->
 <!-- TODO ページの文字を可愛く -->

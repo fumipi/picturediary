@@ -173,7 +173,10 @@ footer {
 }
 
 #front-cover {
-    background:url(assets/picturebookcover.webp) no-repeat center center / cover;
+    background-image: url('/assets/picturebookcover.webp');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 .cssbk input~span {
@@ -205,4 +208,9 @@ footer {
 
 .cssbk input:checked+span+span {
     transform: perspective(1500px) rotateY(0deg);
+}
+
+.page-dontents {
+    font-size: 20px;
+    font-family: 'Zen Kurenaido', sans-serif;
 }
