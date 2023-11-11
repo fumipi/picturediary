@@ -173,7 +173,7 @@ footer {
 }
 
 #front-cover {
-    background-image: url('/assets/picturebookcover.webp');
+    background-image: url('../assets/picturebookcover.webp');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
