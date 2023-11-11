@@ -184,7 +184,7 @@ footer {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     position: absolute;
-    width: 100%;
+    width: 60%;
     height: 100%;
     background-color: #fffff8;
     border: 1px solid black;

@@ -62,6 +62,8 @@ document.querySelector("#clear_btn").addEventListener("click", () => {
 });
 
 // メモ機能
+let pageCount = 99;
+
 function saveMemo() {
     const title = document.querySelector("#title").value;
     const text = document.querySelector("#text").value;
@@ -69,7 +71,7 @@ function saveMemo() {
     const imageData = canvas.toDataURL();
     const memo = { title, text, timestamp, image: imageData };
     localStorage.setItem(timestamp.toString(), JSON.stringify(memo));
-    appendMemo(memo);
+    loadMemos();
     document.querySelector('#title').value = "";
     document.querySelector('#text').value = "";
     clearCanvas();
@@ -82,47 +84,48 @@ document.querySelector("#clear").addEventListener("click", () => {
     document.querySelector("#pages").innerHTML = '';
 });
 
-// function appendMemo({ title, text, timestamp, image }) {
-//     const dateStr = new Date(timestamp).toLocaleString('ja-JP');
-//     const listElement = document.createElement('li');
-//     listElement.innerHTML = `
-//         <p>${dateStr}</p>
-//         <p>${title}</p>
-//         <img src="${image}" alt="${title}">
-//         <p>${text}</p>
-//     `;
-//     document.querySelector("#list").appendChild(listElement);
-// }
+function appendMemo(memo1, memo2, pageCount) {
+    const dateStr1 = new Date(memo1.timestamp).toLocaleString('ja-JP');
+    let memo2Content = '';
 
-function appendMemo({ title, text, timestamp, image }) {
-    const dateStr = new Date(timestamp).toLocaleString('ja-JP');
+    if (memo2) {
+        const dateStr2 = new Date(memo2.timestamp).toLocaleString('ja-JP');
+        memo2Content = `
+            <p>${dateStr2}</p>
+            <p>${memo2.title}</p>
+            <img src="${memo2.image}" alt="${memo2.title}">
+            <p>${memo2.text}</p>
+        `;
+    }
+
     const pageElement = document.createElement('label');
     pageElement.innerHTML = `
         <input type="checkbox" />
-        <span class="page-contents" style="z-index: 95;">
-            <p>${dateStr}</p>
-            <p>${title}</p>
-            <img src="${image}" alt="${title}">
-            <p>${text}</p>
+        <span class="page-contents" style="z-index:${pageCount};">
+            <p>${dateStr1}</p>
+            <p>${memo1.title}</p>
+            <img src="${memo1.image}" alt="${memo1.title}">
+            <p>${memo1.text}</p>
         </span>
-        <span class="page-contents" class="dummy">
-            <p>${dateStr}</p>
-            <p>${title}</p>
-            <img src="${image}" alt="${title}">
-            <p>${text}</p>
-        </span>
+        <span class="page-contents" class="dummy">${memo2Content}</span>
     `;
     console.log(pageElement);
     document.querySelector("#pages").appendChild(pageElement);
 }
 
 function loadMemos() {
-    Object.keys(localStorage).sort().forEach(key => {
-        const memo = JSON.parse(localStorage.getItem(key));
-        if (memo) {
-            appendMemo(memo);
+    document.querySelector("#pages").innerHTML="";
+    const keys = Object.keys(localStorage).sort();
+
+    for (let i = 0; i < keys.length; i += 2) {
+        const memo1 = JSON.parse(localStorage.getItem(keys[i]));
+        const memo2 = i + 1 < keys.length ? JSON.parse(localStorage.getItem(keys[i + 1])) : null;
+
+        if (memo1) {
+            appendMemo(memo1, memo2, pageCount);
+            pageCount -= 2; 
         }
-    });
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
